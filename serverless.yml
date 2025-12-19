@@ -1,0 +1,26 @@
+service: freeloud-minecraft
+
+provider:
+  name: aws
+  runtime: python3.12
+  region: us-east-1
+  
+  environment:
+    INSTANCE_ID: i-0156d50467b087f14
+    REGION: us-east-1
+  
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - ec2:StartInstances
+            - ec2:DescribeInstances
+            - ec2:DescribeInstanceStatus
+          Resource: '*'
+
+functions:
+  startServer:
+    handler: handler.start_server
+    timeout: 180
+    url: true

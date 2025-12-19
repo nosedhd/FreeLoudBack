@@ -1,0 +1,11 @@
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# También es común ignorar:
+.env.production
+.env.development
+.env.test
+
+.serverless/
